@@ -29,12 +29,14 @@ public class ProductService {
     }
 
     public boolean update(Product product) {
-        boolean updated = productRepository.update(product);
-        return updated;
+        return productRepository.update(product);
+    }
+
+    public boolean delete(long id) {
+        return productRepository.delete(id);
     }
 
     public Product read(long id) {
-        Product product = productRepository.read(id);
-        return product;
+        return productRepository.read(id);
     }
 }

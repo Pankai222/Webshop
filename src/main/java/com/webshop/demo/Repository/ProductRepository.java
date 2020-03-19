@@ -53,6 +53,14 @@ public class ProductRepository implements ProductCRUDInterface<Product> {
 
     @Override
     public boolean delete(long id) {
+        int i = 0;
+        while(i < products.size()) {
+            if (products.get(i).getId() == id) {
+                products.remove(i);
+                return true;
+            }
+            i++;
+        }
         return false;
     }
 
