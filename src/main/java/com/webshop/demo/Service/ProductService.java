@@ -28,4 +28,13 @@ public class ProductService {
         return products;
     }
 
+    public boolean update(Product product) {
+        boolean updated = productRepository.update(product);
+        return updated;
+    }
+
+    public Product read(long id) {
+        Product product = productRepository.read(id);
+        return product;
+    }
 }
