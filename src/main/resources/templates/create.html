@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
 <h2>Create new product</h2>
-
+    <div class="form-group row">
     <form action="/create" method="post">
         <input type="text" name="id" placeholder="product id">
         <input type="text" name="name" placeholder="product name">
@@ -14,6 +16,7 @@
         <input type="text" name="description" placeholder="product description">
         <input type="submit" value="send">
     </form>
+    </div>
 
 </body>
 </html>
