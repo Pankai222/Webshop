@@ -53,4 +53,9 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @GetMapping("/produktside")
+    public String produktside(@ModelAttribute Product prod) {
+        return("produktside");
+    }
+
 }
