@@ -11,29 +11,31 @@
 
 </head>
 <body>
+<div class="container-fluid">
+    <h2>Liste over varer i kataloget</h2>
+</div>
+<div class="col-md-8">
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Navn</th>
+            <th>Pris</th>
+            <th>Beskrivelse</th>
+        </tr>
+        <tr th:each="product : ${prod}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.description}"></td>
+            <td><a th:href="@{'/produktside/' + ${product.id}}">Se produktdetaljer</a></td>
+            <td><a th:href="@{'/update/' + ${product.id}}">Opdater</a></td>
+            <td><a th:href="@{'/delete/' + ${product.id}}">Slet</a></td>
 
-<h2 class="h2-custom">Liste over varer i kataloget</h2>
-
-<table class="table table-bordered table-custom">
-    <tr>
-        <th>ID</th>
-        <th>Navn</th>
-        <th>Pris</th>
-        <th>Beskrivelse</th>
-    </tr>
-    <tr th:each="product : ${prod}">
-        <td th:text="${product.id}"></td>
-        <td th:text="${product.name}"></td>
-        <td th:text="${product.price}"></td>
-        <td th:text="${product.description}"></td>
-        <td><a th:href="@{'/produktside/' + ${product.id}}">Se produktdetaljer</a></td>
-        <td><a th:href="@{'/update/' + ${product.id}}">Opdater</a></td>
-        <td><a th:href="@{'/delete/' + ${product.id}}">Slet</a></td>
-
-    </tr>
-</table>
-
-<a href="create">Tilføj produkt til listen</a>
-
+        </tr>
+    </table>
+</div>
+<div class="container-fluid">
+    <a href="create">Tilføj produkt til listen</a>
+</div>
 </body>
 </html>

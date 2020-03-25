@@ -4,11 +4,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name="product")
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String name;
     private double price;
@@ -23,18 +24,23 @@ public class Product {
     @OneToOne
     private CompanyDescription compDesc;
 
-    public Product(long id, String name, double price, String description) {
-        this.id = id;
+    public Product(String name, double price, String description, Company company,
+                   List<Category> categories, CompanyDescription compDesc) {
         this.name = name;
         this.price = price;
         this.description = description;
+        this.company = company;
+        this.categories = categories;
+        this.compDesc = compDesc;
     }
 
-    public long getId() {
+    public Product() {}
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

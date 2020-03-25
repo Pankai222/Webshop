@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -14,29 +15,32 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
-    public void create(Product product) {
-        productRepository.create(product);
-    }
-
-    public List<Product> listAll() {
-
-        List<Product> products = new ArrayList<>();
-        for (Product product : productRepository.listProducts()) {
-            products.add(product);
+    public List<Product> getAll() {
+        List<Product> productList = new ArrayList<>();
+        for (Product product : productRepository.findAll()) {
+            productList.add(product);
         }
 
-        return products;
+        return productList;
     }
 
-    public boolean update(Product product) {
-        return productRepository.update(product);
+    public void delete(Long id) {
+        productRepository.deleteById(id);
     }
 
-    public boolean delete(long id) {
-        return productRepository.delete(id);
+    public void create(Product prod) {
+        productRepository.save(prod);
     }
 
-    public Product read(long id) {
-        return productRepository.read(id);
+    public void update(Product prod) {
+        productRepository.save(prod);
+    }
+
+    public Product findById(Long id) {
+        Optional<Product> optionalProd = productRepository.findById(id);
+        if (!optionalProd.isPresent()) {
+            throw new RuntimeException("Produkt kunne ikke findes");
+        }
+        return optionalProd.get();
     }
 }

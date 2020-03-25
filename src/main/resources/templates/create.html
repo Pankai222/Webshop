@@ -7,16 +7,29 @@
     <link href="/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
+<div class="col-md-8 order-md-1">
 <h2>Create new product</h2>
-    <div class="form-group row">
-    <form class="form-group" action="/create" method="post">
-        <input type="text" name="id" placeholder="product id">
-        <input type="text" name="name" placeholder="product name">
-        <input type="number" name="price" placeholder="product price">
-        <input type="text" name="description" placeholder="product description">
-        <input type="submit" value="send">
+    <form class="needs-validation" action="/create" method="post">
+        <div class="row col-md-12 mb-3">
+            <input type="text" class="form-control" name="name" placeholder="Produktnavn">
+        </div>
+        <div class="row col-md-12 mb-3">
+            <input type="number" class="form-control" name="price" placeholder="Pris på produkt">
+        </div>
+        <div class="row col-md-12 mb-3">
+            <input type="text" class="form-control" name="description" placeholder="Produktbeskrivelse">
+        </div>
+        <div class="row col-md-12 mb-3">
+            <input type="text" class="form-control" name="category" placeholder="Produktkategori">
+        </div>
+        <div class="row col-md-12 mb-3">
+            <input type="text" class="form-control" name="company" placeholder="Producent">
+        </div>
+        <div class="row col-md-12 mb-3">
+            <input class="form-control" type="submit" value="send">
+        </div>
     </form>
-    </div>
+</div>
 
 </body>
 </html>

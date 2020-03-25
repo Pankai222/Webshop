@@ -18,7 +18,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("prod", productService.listAll());
+        model.addAttribute("prod", productService.getAll());
 
         return ("index");
 
@@ -37,7 +37,8 @@ public class HomeController {
 
     @GetMapping("/update/{id}")
     public String update(@PathVariable("id") long id, Model model) {
-        model.addAttribute("prod",productService.read(id));
+
+        model.addAttribute("prod",productService.findById(id));
         return("update");
     }
 
