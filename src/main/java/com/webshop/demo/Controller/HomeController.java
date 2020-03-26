@@ -1,6 +1,10 @@
 package com.webshop.demo.Controller;
 
+import com.webshop.demo.Model.Category;
+import com.webshop.demo.Model.CompanyDescription;
 import com.webshop.demo.Model.Product;
+import com.webshop.demo.Service.CategoryService;
+import com.webshop.demo.Service.CompanyDescriptionService;
 import com.webshop.demo.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +20,12 @@ public class HomeController {
     @Autowired
     ProductService productService;
 
+    @Autowired
+    CategoryService categoryService;
+
+    @Autowired
+    CompanyDescriptionService companyDescriptionService;
+
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("prod", productService.getAll());
@@ -30,8 +40,10 @@ public class HomeController {
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute Product prod) {
+    public String create(@ModelAttribute Product prod, Category cat, CompanyDescription comp) {
         productService.create(prod);
+        categoryService.create(cat);
+        companyDescriptionService.create(comp);
         return "redirect:/";
     }
 
@@ -55,7 +67,9 @@ public class HomeController {
     }
 
     @GetMapping("/produktside")
-    public String produktside(@ModelAttribute Product prod) {
+    public String produktside(Model model) {
+
+        model.addAttribute("prod",productService.getAll());
         return("produktside");
     }
 

@@ -7,7 +7,6 @@
     <title>Varekatalog</title>
 
     <link href="/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/custom.css" rel="stylesheet">
 
 </head>
 <body>
@@ -27,7 +26,7 @@
             <td th:text="${product.name}"></td>
             <td th:text="${product.price}"></td>
             <td th:text="${product.description}"></td>
-            <td><a th:href="@{'/produktside/' + ${product.id}}">Se produktdetaljer</a></td>
+            <td><a href="produktside">Se produktdetaljer</a></td>
             <td><a th:href="@{'/update/' + ${product.id}}">Opdater</a></td>
             <td><a th:href="@{'/delete/' + ${product.id}}">Slet</a></td>
 

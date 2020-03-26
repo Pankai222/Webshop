@@ -18,10 +18,10 @@ public class Product {
     @OneToOne
     private Company company;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "products", fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Category> categories;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private CompanyDescription compDesc;
 
     public Product(String name, double price, String description, Company company,
